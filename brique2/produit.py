@@ -54,7 +54,7 @@ def sauvegarder_csv(chemin, produits):
 
 
 def lire_prix(message):
-    """Redemande le prix tant qu'il n'est pas un nombre positif ou nul."""
+    """Redemande le prix tant qu'il n'est pas un nombre positif ou nul (try/except)."""
     while True:
         try:
             prix = float(input(message))
@@ -66,7 +66,7 @@ def lire_prix(message):
 
 
 def lire_quantite(message):
-    """Redemande la quantité tant qu'elle n'est pas un entier positif ou nul."""
+    """Redemande la quantité tant qu'elle n'est pas un entier positif ou nul (try/except)."""
     while True:
         try:
             quantite = int(input(message))
@@ -144,4 +144,5 @@ def main():
             print("Choix invalide, réessayez.")
 
 
-main()
+if __name__ == "__main__":
+    main()
