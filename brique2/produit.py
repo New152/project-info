@@ -51,7 +51,7 @@ def afficher_produits(produits):
     if len(produits) == 0:
         print("Le catalogue est vide !")
     else:
-        print("\n--- LISTE DES PRODUITS ---")
+        print("\n LISTE DES PRODUITS :")
         for nom in produits:
             prix = produits[nom]["prix"]
             qte = produits[nom]["quantite"]
@@ -79,13 +79,13 @@ def ajouter_produit(produits):
             print("Erreur : veuillez saisir un nombre entier valide.")
             
     produits[nom] = {"prix": prix, "quantite": quantite}
-    print("Produit ajouté avec succès !")
+    print("Produit ajoute avec succes")
 
 def chercher_produit(produits):
     nom = input("Quel produit cherchez-vous ? ")
     if nom in produits:
         infos = produits[nom]
-        print(nom, ":", infos["prix"], "DT -", infos["quantite"], "en stock")
+        print(nom, ":", infos["prix"], "DT ", infos["quantite"], "en stock")
     else:
         print("Produit introuvable.")
 
@@ -93,7 +93,7 @@ def main():
     produits = charger_json(FICHIER_JSON)
 
     while True:
-        print("\n=== MENU ===")
+        print("\n MENU :")
         print("1. Afficher les produits")
         print("2. Ajouter ou modifier un produit")
         print("3. Chercher un produit")
@@ -122,6 +122,6 @@ def main():
             print("Au revoir !")
             break
         else:
-            print("Choix invalide, réessayez.")
+            print("Choix invalide réessayez")
 
 main()
