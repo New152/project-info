@@ -13,7 +13,7 @@ def charger_json(chemin):
         f.close()
         return produits
     else:
-        print("Aucune sauvegarde JSON : le catalogue commence vide.")
+        print("Aucune sauvegarde JSON : le catalogue commence vide")
         return {}
 
 
@@ -29,7 +29,7 @@ def charger_csv(chemin):
             }
         f.close()
     else:
-        print("Le fichier CSV n'existe pas encore.")
+        print("Le fichier CSV n'existe pas encore")
     return produits
 
 
@@ -37,7 +37,7 @@ def sauvegarder_json(chemin, produits):
     f = open(chemin, "w", encoding="utf-8")
     json.dump(produits, f, ensure_ascii=False, indent=2)
     f.close()
-    print("Catalogue enregistré en JSON.")
+    print("Catalogue enregistré en JSON")
 
 
 def sauvegarder_csv(chemin, produits):
@@ -47,39 +47,39 @@ def sauvegarder_csv(chemin, produits):
     for nom in produits:
         writer.writerow([nom, produits[nom]["prix"], produits[nom]["quantite"]])
     f.close()
-    print("Catalogue exporté en CSV.")
+    print("Catalogue exporte en CSV")
 
 
 def afficher_produits(produits):
     if len(produits) == 0:
-        print("Le catalogue est vide.")
+        print("Le catalogue est vide")
     else:
-        print("\n--- Catalogue ---")
+        print("\n Catalogue ")
         for nom in produits:
-            print(nom, ":", produits[nom]["prix"], "DT —", produits[nom]["quantite"], "en stock")
+            print(nom, ":", produits[nom]["prix"], "DT ", produits[nom]["quantite"], "en stock")
 
 
 def ajouter_produit(produits):
     nom = input("Nom du produit : ")
     prix = float(input("Prix (DT) : "))
-    quantite = int(input("Quantité en stock : "))
+    quantite = int(input("Quantite en stock : "))
     produits[nom] = {"prix": prix, "quantite": quantite}
-    print(f"Produit '{nom}' enregistré.")
+    print(f"Produit '{nom}' enregistre.")
 
 
 def chercher_produit(produits):
-    nom = input("Nom du produit à chercher : ")
+    nom = input("Nom du produit a chercher : ")
     if nom in produits:
-        print(nom, ":", produits[nom]["prix"], "DT —", produits[nom]["quantite"], "en stock")
+        print(nom, ":", produits[nom]["prix"], "DT ", produits[nom]["quantite"], "en stock")
     else:
-        print("Produit introuvable.")
+        print("Produit introuvable")
 
 
 def main():
     produits = charger_json(FICHIER_JSON)
 
     while True:
-        print("\n=== CATALOGUE DE PRODUITS ===")
+        print("\n CATALOGUE DE PRODUITS ")
         print("1) Afficher les produits")
         print("2) Ajouter ou modifier un produit")
         print("3) Chercher un produit")
@@ -97,17 +97,17 @@ def main():
             chercher_produit(produits)
         elif choix == "4":
             produits = charger_csv(FICHIER_CSV)
-            print("Catalogue rechargé depuis le CSV.")
+            print("Catalogue rechargé depuis le CSV")
         elif choix == "5":
             sauvegarder_json(FICHIER_JSON, produits)
         elif choix == "6":
             sauvegarder_csv(FICHIER_CSV, produits)
         elif choix == "7":
             sauvegarder_json(FICHIER_JSON, produits)
-            print("Au revoir !")
+            print("Au revoir")
             break
         else:
-            print("Choix invalide, réessayez.")
+            print("Choix invalide, réessayez")
 
 
 main()
