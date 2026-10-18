@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+brique2/produits.json
+brique2/produits.csv
